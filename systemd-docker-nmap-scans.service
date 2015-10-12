@@ -1,0 +1,19 @@
+[Unit]
+Description=Docker Container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+EnvironmentFile=/etc/sysconfig/docker-nmap-scans
+
+# Dash will ensure systemd doesn't fail if command fails
+ExecStartPre=-/usr/bin/docker stop nmap-scans
+ExecStartPre=-/usr/bin/docker rm nmap-scans
+
+ExecStart=/usr/bin/docker run --rm -v ${BASE_DIR}/scripts:/scripts -v ${BASE_DIR}/results:/results --env-file=/etc/sysconfig/docker-nmap-scans --name=nmap-scans nmap-scans
+
+ExecStop=/usr/bin/docker stop nmap-scans
+
+[Install]
+WantedBy=multi-user.target
