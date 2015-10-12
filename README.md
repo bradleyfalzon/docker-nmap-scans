@@ -30,6 +30,7 @@ INTERVAL=86400
 
 ```
 docker run -d --restart=on-failure -v /base_dir/scripts:/scripts -v /base_dir/results:/results --env-file=/etc/sysconfig/docker-nmap-scans --name=nmap-scans nmap-scans
+docker logs nmap-scans
 ```
 
 # systemd
