@@ -18,6 +18,9 @@ MAILTO="user@example.com"
 # INTERVAL is the runtime in seconds between scans. Required.
 INTERVAL=86400
 
+# OPTIONS is the arguments passed to nmap. Optional, defaults to '-Pn'.
+# OPTIONS="-Pn -T5 -p 22,80 -oA"
+
 # TZ is the timezone. Optional.
 # TZ="Australia/Adelaide"
 
