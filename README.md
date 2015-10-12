@@ -34,7 +34,7 @@ docker run -d --restart=on-failure -v /base_dir/scripts:/scripts -v /base_dir/re
 
 # systemd
 
-An example systemd service file and installation instructions. Alternative use the `--restart=always` Docker argument.
+An example systemd service file and installation instructions. Alternative use the `--restart` [Docker argument](https://docs.docker.com/reference/run/#restart-policies-restart).
 
 ```
 cp systemd-docker-nmap-scans.service /etc/systemd/system/docker-nmap-scans.service
