@@ -38,7 +38,11 @@ while true; do
         NOW_TS=$(date +%s)
         LAST_RUN_SECS=$(expr ${NOW_TS} - ${LAST_RUN_TS})
         SLEEP=$(expr ${INTERVAL} - ${LAST_RUN_SECS})
-        [ ${SLEEP} -gt 0 ] && echo $(date) "- sleeping ${SLEEP} seconds" && sleep ${SLEEP}
+        if [ ${SLEEP} -gt 0 ]; then
+            UNTIL_SECS=$(expr ${NOW_TS} + ${SLEEP})
+            echo $(date) "- sleeping until" $(date --date="@${UNTIL_SECS}") "(${SLEEP}) seconds"
+            sleep ${SLEEP}
+        fi
     fi
 
     START_TIME=$(date +%s)
