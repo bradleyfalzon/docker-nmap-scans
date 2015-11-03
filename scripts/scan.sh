@@ -46,7 +46,7 @@ while true; do
     fi
 
     START_TIME=$(date +%s)
-    echo $(date) '- starting all targets'
+    echo $(date) '- starting all targets, options: ' ${OPTIONS}
     echo '=================='
 
     DATE=`date +%Y-%m-%d_%H-%M-%S`
@@ -80,6 +80,9 @@ while true; do
                 rm ${CUR_LOG}
             fi
             rm ${DIFF_LOG}
+        else
+            # Create the previous scan log
+            ln -sf ${CUR_LOG} ${PREV_LOG}
         fi
     done
 
