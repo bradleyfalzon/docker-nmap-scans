@@ -71,7 +71,7 @@ while true; do
                 # The diff isn't empty, show it on screen for docker logs and email it
                 echo 'Emailing diff log:'
                 cat ${DIFF_LOG}
-                cat ${DIFF_LOG} | mail -s "namp scan diff for ${TARGET}" ${MAILTO}
+                cat ${DIFF_LOG} | mail -s "nmap scan diff for ${TARGET}" ${MAILTO}
 
                 # Set the current nmap log file to reflect the last date changed
                 ln -sf ${CUR_LOG} ${PREV_LOG}
